@@ -60,10 +60,10 @@ public class Location {
 	}
 	@Override
 	public String toString() {
-		return  addressOne + "\n"
-				+ ((addressTwo != null) ? addressTwo +"," :"")
-				+ city + ",\n" + region + postalCode + ",\n" + country + "\n"
-				+  latitude + ", " + longitude;
+		return  (!addressOne.equals("null") ? addressOne + ", " : "")
+				+ (!addressTwo.equals("null") ? (addressTwo + ",\n"):"\n")
+				+ city + ", " + region + " " + postalCode
+				;
 	}
 	
 	
