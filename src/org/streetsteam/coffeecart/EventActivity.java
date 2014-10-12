@@ -34,8 +34,8 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 public class EventActivity extends Activity implements LocationListener{
 
 	private LocationManager lm; 
-	private double latitude = 37.2970156;
-	private double longitude = -121.8174129;
+	private double latitude = 37.3768443;
+	private double longitude = -121.9216705;
 
 	private ListView mainListView ;  
 	private ArrayAdapter<Event> listAdapter ;  

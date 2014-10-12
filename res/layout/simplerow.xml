@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="?android:attr/listPreferredItemHeight"
+    android:layout_height="60dp"
     android:orientation="vertical"
-    android:padding="10dip" >
+    android:padding="4dp" >
 
     <TextView
         android:id="@+id/eventName"
         android:layout_width="fill_parent"
         android:layout_weight="1"
-        android:layout_height="0dip"
-        android:padding="5dp"
-        android:textSize="18sp" 
+        android:layout_height="0dp"
+        android:textSize="16sp" 
         android:gravity="center_vertical">
     </TextView>
 

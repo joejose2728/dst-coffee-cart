@@ -55,8 +55,8 @@ public class MainActivity extends TabActivity{
 		// Heat tab
 		Intent heatIntent = new Intent().setClass(this, HeatMapsActivity.class);
 		TabSpec tabSpecHeat = tabHost
-				.newTabSpec("heatedMaps")
-				.setIndicator("Heated Maps")
+				.newTabSpec("heatMap")
+				.setIndicator("Heat Map")
 				.setContent(heatIntent);
 
 		// Scheduled tab
