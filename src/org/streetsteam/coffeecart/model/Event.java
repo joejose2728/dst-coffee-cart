@@ -1,7 +1,11 @@
 package org.streetsteam.coffeecart.model;
 
-public class Event {
+import java.io.Serializable;
+
+public class Event implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
+
 	private String apiEventId;
 	private String eventName;
 	private String description;
