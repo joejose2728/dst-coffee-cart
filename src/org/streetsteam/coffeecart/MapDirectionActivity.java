@@ -79,6 +79,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.Menu;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -109,6 +110,9 @@ public class MapDirectionActivity extends FragmentActivity {
 		destLat = getIntent().getDoubleExtra("latitude", 0.0);
 		destLong = getIntent().getDoubleExtra("longitude", 0.0);
 		destName = getIntent().getStringExtra("eventLocationName");
+		System.out.println("destLat:" + destLat);
+		System.out.println("destLongt" + destLong);
+		System.out.println("dest" + destName);
 		// Getting reference to SupportMapFragment of the activity_main
 		//SupportMapFragment fm = (SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.map);
 
@@ -173,6 +177,8 @@ public class MapDirectionActivity extends FragmentActivity {
                 .build();                   // Creates a CameraPosition from the builder
             map.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));*/
 		}
+		else
+			Toast.makeText(getApplicationContext(), "Map null", 2000).show();
 	}
 
 	private String getDirectionsUrl(LatLng origin,LatLng dest){
@@ -324,6 +330,8 @@ public class MapDirectionActivity extends FragmentActivity {
 			}
 
 			// Drawing polyline in the Google Map for the i-th route
+			if(map == null)
+				Toast.makeText(getApplicationContext(), "map null", Toast.LENGTH_LONG).show();
 			map.addPolyline(lineOptions);
 		}
 	}

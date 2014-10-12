@@ -49,6 +49,11 @@
             android:name="org.streetsteam.coffeecart.ScheduledActivity"
             android:theme="@style/AppBaseTheme" >
         </activity>
+        
+        <activity
+            android:name="org.streetsteam.coffeecart.MapDirectionActivity"
+            android:theme="@style/AppBaseTheme" >
+        </activity>
 
         <meta-data
             android:name="com.google.android.gms.version"

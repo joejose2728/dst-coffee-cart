@@ -15,6 +15,8 @@ public class SQLiteHelper extends SQLiteOpenHelper {
   public static final String COLUMN_END = "end";
   public static final String COLUMN_CAPACITY = "capacity";
   public static final String COLUMN_VENUE = "venue";
+  public static final String COLUMN_LONG = "longitude";
+  public static final String COLUMN_LAT = "latitude";  
   public static final String COLUMN_LIKE = "like";
 
   private static final String DATABASE_NAME = "coffee-cart.db";
@@ -26,9 +28,11 @@ public class SQLiteHelper extends SQLiteOpenHelper {
       + " text not null, " + COLUMN_EVENT_NAME
       + " text not null, " + COLUMN_DESCRIPTION
       + " text not null, " + COLUMN_START
-      + " text not null, " + COLUMN_END
-      + " text not null, " + COLUMN_CAPACITY
+      + " text, " + COLUMN_END
+      + " text, " + COLUMN_CAPACITY
       + " text not null, " + COLUMN_VENUE
+      + " text not null, " + COLUMN_LONG
+      + " text not null, " + COLUMN_LAT      
       + " text not null, " + COLUMN_LIKE
       + " text);"; 
 

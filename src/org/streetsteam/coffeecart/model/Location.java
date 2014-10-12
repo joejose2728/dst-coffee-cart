@@ -1,6 +1,8 @@
 package org.streetsteam.coffeecart.model;
 
-public class Location {
+import java.io.Serializable;
+
+public class Location implements Serializable {
 
 	private String addressOne;
     private String addressTwo;

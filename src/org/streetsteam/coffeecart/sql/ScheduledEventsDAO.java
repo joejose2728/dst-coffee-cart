@@ -1,10 +1,10 @@
 package org.streetsteam.coffeecart.sql;
 import java.util.ArrayList;
+import org.streetsteam.coffeecart.model.Location;
 import java.util.Date;
 import java.util.List;
-
 import org.streetsteam.coffeecart.model.Event;
-
+import org.streetsteam.coffeecart.model.Venue;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -22,7 +22,9 @@ public class ScheduledEventsDAO {
 		  SQLiteHelper.COLUMN_START,
 		  SQLiteHelper.COLUMN_END,
 		  SQLiteHelper.COLUMN_CAPACITY,
-		  SQLiteHelper.COLUMN_VENUE,};
+		  SQLiteHelper.COLUMN_VENUE,
+		  SQLiteHelper.COLUMN_LONG,
+		  SQLiteHelper.COLUMN_LAT, };
 
   public ScheduledEventsDAO(Context context) {
     dbHelper = new SQLiteHelper(context);
@@ -38,13 +40,15 @@ public class ScheduledEventsDAO {
 
   public long createScheduleEvent(Event event) {
     ContentValues values = new ContentValues();
-    values.put(SQLiteHelper.COLUMN_EVENTAPI_ID, event.getApiEventId());
-    values.put(SQLiteHelper.COLUMN_EVENTAPI_ID, event.getApiEventId());
-    values.put(SQLiteHelper.COLUMN_EVENTAPI_ID, event.getApiEventId());
+    values.put(SQLiteHelper.COLUMN_EVENTAPI_ID, event.getApiEventId()); 
+    values.put(SQLiteHelper.COLUMN_EVENT_NAME, event.getEventName());
     values.put(SQLiteHelper.COLUMN_START, event.getStart());
-    values.put(SQLiteHelper.COLUMN_END, event.getEnd());
+    values.put(SQLiteHelper.COLUMN_DESCRIPTION, event.getDescription());
+    //values.put(SQLiteHelper.COLUMN_END, event.getEnd());
     values.put(SQLiteHelper.COLUMN_CAPACITY, event.getCapacity());
     values.put(SQLiteHelper.COLUMN_VENUE, event.getVenue().toString());
+    values.put(SQLiteHelper.COLUMN_LONG, event.getVenue().getLocation().getLongitude().toString());
+    values.put(SQLiteHelper.COLUMN_LAT, event.getVenue().getLocation().getLatitude().toString());    
     return database.insert(SQLiteHelper.TABLE_SCHEDULED_EVENTS, null,values);
   }
 
@@ -61,9 +65,15 @@ public class ScheduledEventsDAO {
       event.setEventName(cursor.getString(2));
       event.setDescription(cursor.getString(3));
       event.setStart(cursor.getString(4));
-      event.setEnd(cursor.getString(5));
+      event.setEnd("end");
       event.setCapacity(cursor.getString(6));
       event.setVenueString(cursor.getString(7));
+      Venue v = new Venue();
+      Location location = new Location();
+      location.setLatitude(cursor.getString(8));
+      location.setLongitude(cursor.getString(9));
+      v.setLocation(location);
+      event.setVenue(v);
       events.add(event);
       cursor.moveToNext();
     }

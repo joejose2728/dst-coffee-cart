@@ -1,6 +1,8 @@
 package org.streetsteam.coffeecart.model;
 
-public class Venue {
+import java.io.Serializable;
+
+public class Venue implements Serializable{
 
 	private Location location;
 	private String name;

@@ -46,7 +46,7 @@ public class EventActivity extends Activity implements LocationListener{
 	@Override  
 	public void onCreate(Bundle savedInstanceState) {  
 		super.onCreate(savedInstanceState);  
-		setContentView(R.layout.list);  
+		setContentView(R.layout.event_list);  
 		populateEvents();
 
 		lm = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
@@ -79,13 +79,7 @@ public class EventActivity extends Activity implements LocationListener{
 
 				Intent intentDetails = new Intent(getApplicationContext(),DetailsActivity.class);
 				Event event = events.get(position);
-				intentDetails.putExtra("eventApiId", event.getApiEventId());
-				intentDetails.putExtra("name", event.getEventName());
-				intentDetails.putExtra("description", event.getDescription());
-				intentDetails.putExtra("start", event.getStart());
-				intentDetails.putExtra("end", event.getEnd());
-				intentDetails.putExtra("capacity", event.getCapacity());
-				intentDetails.putExtra("venue", event.getVenue().toString());
+				intentDetails.putExtra("eventObj", event);
 				EventActivity.this.startActivity(intentDetails);
 			}	    	
 		}); 
@@ -109,6 +103,11 @@ public class EventActivity extends Activity implements LocationListener{
 			if (event != null){
 				TextView etv = (TextView) row.findViewById(R.id.eventName);
 				etv.setText(event.getEventName());
+				TextView etv2 = (TextView) row.findViewById(R.id.eventLocation);
+				String venue = event.getVenue().getName();
+				if (venue.equals("null"))
+					venue = "";
+				etv2.setText(venue);
 			}
 			return row;
 		}
