@@ -110,14 +110,11 @@ public class MapDirectionActivity extends FragmentActivity {
 		destLat = getIntent().getDoubleExtra("latitude", 0.0);
 		destLong = getIntent().getDoubleExtra("longitude", 0.0);
 		destName = getIntent().getStringExtra("eventLocationName");
-		System.out.println("destLat:" + destLat);
-		System.out.println("destLongt" + destLong);
-		System.out.println("dest" + destName);
+		
 		// Getting reference to SupportMapFragment of the activity_main
 		//SupportMapFragment fm = (SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.map);
 
 		MapFragment fm = (MapFragment)getFragmentManager().findFragmentById(R.id.map);
-
 
 		// Getting Map for the SupportMapFragment
 		map = fm.getMap();

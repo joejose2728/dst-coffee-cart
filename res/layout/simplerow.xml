@@ -1,26 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="70dp"
+    android:layout_height="100dp"
     android:orientation="vertical"
     android:padding="4dp" >
 
     <TextView
         android:id="@+id/eventName"
         android:layout_width="wrap_content"
+        android:layout_height="60dip"
         android:layout_weight="1"
-        android:layout_height="50dp"
-        android:textSize="16sp" 
-        >
+        android:ellipsize="marquee"
+        android:fontFamily="Helvetica san-serif"
+        android:lines="2"
+        android:textSize="20sp" >
     </TextView>
 
-      <TextView
-        android:id="@+id/eventLocation"
-        android:layout_width="fill_parent"
-        android:layout_gravity="bottom|right"
-        android:layout_weight="1"
+    <LinearLayout android:orientation="horizontal"
         android:layout_height="20dp"
-        android:textSize="12sp" 
-        >
-    </TextView>
+        android:layout_width="fill_parent" >
+        <TextView
+            android:id="@+id/eventStart"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:textColor="#ff0000"
+            android:textSize="16sp" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/eventCapacity"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="100dp"
+            android:layout_weight="1"
+            android:textColor="#0000ff"
+            android:textSize="16sp" >
+        </TextView>
+    </LinearLayout>
+
 </LinearLayout>

@@ -9,6 +9,7 @@ import org.streetstream.coffeecart.R;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -87,7 +88,8 @@ public class ScheduledActivity extends Activity {
 				TextView etv = (TextView) row.findViewById(R.id.evname);
 				etv.setText(event.getEventName());
 				TextView est = (TextView) row.findViewById(R.id.start);
-				est.setText(event.getStart());
+				est.setText(event.getStart().replace("T", ","));
+				est.setTypeface(null, Typeface.BOLD);
 			}
 			return row;
 		}

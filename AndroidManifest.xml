@@ -22,14 +22,24 @@
         android:allowBackup="true"
         android:icon="@drawable/coffee"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme" 
+        >
         <activity
-            android:name="org.streetsteam.coffeecart.MainActivity"
-            android:label="@string/app_name" >
+            android:name="org.streetsteam.coffeecart.Splash"
+            android:label="@string/splash"
+           	android:theme="@style/Theme.AppCompat.Light" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="org.streetsteam.coffeecart.MainActivity"
+            android:label="@string/app_name"
+            android:icon="@drawable/coffee">
+            <intent-filter>
+<!--                 <action android:name="android.intent.action.MAIN" /> -->
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity

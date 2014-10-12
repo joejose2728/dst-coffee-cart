@@ -14,6 +14,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
@@ -103,11 +104,12 @@ public class EventActivity extends Activity implements LocationListener{
 			if (event != null){
 				TextView etv = (TextView) row.findViewById(R.id.eventName);
 				etv.setText(event.getEventName());
-				TextView etv2 = (TextView) row.findViewById(R.id.eventLocation);
-				String venue = event.getVenue().getName();
-				if (venue.equals("null"))
-					venue = "";
-				etv2.setText(venue);
+				TextView etv2 = (TextView) row.findViewById(R.id.eventStart);
+				etv2.setText(event.getStart().replace("T", ","));
+				etv2.setTypeface(null,Typeface.BOLD);
+				TextView etv3 = (TextView) row.findViewById(R.id.eventCapacity);
+				etv3.setText(event.getCapacity());
+				etv3.setTypeface(null,Typeface.BOLD);
 			}
 			return row;
 		}
@@ -118,7 +120,7 @@ public class EventActivity extends Activity implements LocationListener{
 		@Override
 		public void onStart() {
 			super.onStart();
-			progress = ProgressDialog.show(EventActivity.this, "Loading events...", "Please wait");
+			progress = ProgressDialog.show(EventActivity.this, "Please wait...", "Loading upcoming events around you!");
 		}
 		
 		@Override
@@ -167,10 +169,5 @@ public class EventActivity extends Activity implements LocationListener{
 	protected void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
-		if (events != null){
-			listAdapter.addAll(events);
-			mainListView.setAdapter(listAdapter);
-			listAdapter.notifyDataSetChanged();
-		}
 	}
 }

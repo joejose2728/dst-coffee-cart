@@ -70,8 +70,8 @@ public class ScheduledEventsDAO {
       event.setVenueString(cursor.getString(7));
       Venue v = new Venue();
       Location location = new Location();
-      location.setLatitude(cursor.getString(8));
-      location.setLongitude(cursor.getString(9));
+      location.setLatitude(cursor.getString(9));
+      location.setLongitude(cursor.getString(8));
       v.setLocation(location);
       event.setVenue(v);
       events.add(event);
